@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoryMainActivity"
+    android:background="@color/mcdonaldsGreen"
+    android:id="@+id/item_main_activity"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bar"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:background="@color/greenBar"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"/>
+
+        <Button
+            android:id="@+id/ilike_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/logo"
+            android:layout_centerInParent="true"
+            android:text="@string/what_i_like"
+            android:layout_margin="8dp"
+            />
+
+        <Button
+            android:id="@+id/allergies_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/logo"
+            android:layout_centerInParent="true"
+            android:text="@string/allergies"
+            android:layout_margin="8dp"/>
+
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/item_rcv"
+        android:layout_below="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"/>
+
+
+
+</RelativeLayout>

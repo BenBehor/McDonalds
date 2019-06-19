@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "786479705558",
+    "firebase_url": "https://delivermee-50136.firebaseio.com",
+    "project_id": "delivermee-50136",
+    "storage_bucket": "delivermee-50136.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786479705558:android:1426597919c4aae4",
+        "android_client_info": {
+          "package_name": "com.mac.ben.delivermee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786479705558-noukfnuk3jcgevs01tknjtijud8jbmiq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mac.ben.delivermee",
+            "certificate_hash": "0d9ba08ee3f5f4b2ede77cc6b8bfd05a6cd3efbd"
+          }
+        },
+        {
+          "client_id": "786479705558-ecnp48nf3sf072jt1o8qbuvuer9ansgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS8KjkSQlBmuFNAkbTeoxagitGO-v0uZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786479705558-ecnp48nf3sf072jt1o8qbuvuer9ansgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

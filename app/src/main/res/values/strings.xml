@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DeliverMee</string>
+    <string name="allergy_list">•Eggs\n •Fish\n •Milk\n •Peanuts\n •Soy Beans\n •Tree Nuts\n •Wheat\n •Gluten\n •MSG\n •Sulphite </string>
+    <string name="allergy_title">The food may contain:</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="thatswhatilike">That\'s what i like:</string>
+    <string name="allergies">Allergies?</string>
+    <string name="what_i_like">What I like!</string>
+    <string name="back">BACK</string>
+
+</resources>
