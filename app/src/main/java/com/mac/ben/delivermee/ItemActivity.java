@@ -53,6 +53,7 @@ public class ItemActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                adapter.notifyDataSetChanged();
                 for(DataSnapshot ds : dataSnapshot.child(categoryName).getChildren()) {
                     mDishName.add((String) ds.getValue());
                 }

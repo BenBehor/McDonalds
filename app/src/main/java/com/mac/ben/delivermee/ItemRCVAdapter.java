@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,12 +24,14 @@ public class ItemRCVAdapter extends RecyclerView.Adapter<ItemRCVAdapter.ViewHold
     private ArrayList<String> mDishDetails;
     private ArrayList<String> mImages;
     private Context mContext;
+    private Animation btnAnimation;
 
     public ItemRCVAdapter(ArrayList<String> mTitleNames, ArrayList<String> mImages, ArrayList<String> mDishDetails, Context context) {
         this.mDishNames = mTitleNames;
         this.mDishDetails = mDishDetails;
         this.mContext = context;
         this.mImages = mImages;
+        btnAnimation = AnimationUtils.loadAnimation(mContext,R.anim.zoomout_in);
     }
 
     @NonNull
@@ -52,6 +56,8 @@ public class ItemRCVAdapter extends RecyclerView.Adapter<ItemRCVAdapter.ViewHold
         viewHolder.item_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                viewHolder.item_layout.startAnimation(btnAnimation);
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
                 alert.setTitle("I'm Loving it!");

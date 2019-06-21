@@ -7,8 +7,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CategoryMainActivity extends AppCompatActivity {
 
@@ -21,31 +26,21 @@ public class CategoryMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Button leftBarBtn = findViewById(R.id.allergies_btn);
-        Button rightBarBtn = findViewById(R.id.ilike_btn);
+        final Button leftBarBtn = findViewById(R.id.allergies_btn);
+        final Button rightBarBtn = findViewById(R.id.ilike_btn);
+        final ImageView logoIv = findViewById(R.id.logo);
         rightBarBtn.setVisibility(View.VISIBLE);
         leftBarBtn.setVisibility(View.VISIBLE);
 
         mContext = CategoryMainActivity.this;
 
-        mTitles.add("Burger");
-        mTitles.add("Beverages");
-        mTitles.add("Salads");
-        mTitles.add("McCafe");
-        mTitles.add("HappyMeal");
-        mTitles.add("Desserts");
-        mSubtitles.add("Burger Meals");
-        mSubtitles.add("Beverages to drink");
-        mSubtitles.add("Subway - NEW Branch near you!");
-        mSubtitles.add("Pasta Basta - free deliver monday's");
-        mSubtitles.add("Ushi Ushi - 20% Discount available!");
-        mSubtitles.add("DeliCream, Golda, Max Brenner...");
-        mImages.add(R.drawable.burger);
-        mImages.add(R.drawable.beverages);
-        mImages.add(R.drawable.salads);
-        mImages.add(R.drawable.mccafe);
-        mImages.add(R.drawable.happymeal);
-        mImages.add(R.drawable.desserts);
+        //basic data is on the device, just to load the data faster & without internet connection.
+        String[] titleString = new String[] {"Burger","Beverages","Salads","McCafe","HappyMeal","Desserts"};
+        String[] subtiteString = new String[] {"We’re well known for our burgers. 100% fresh beef delicious meet! \n You’ll find them all here.","Refreshing beverages and homemade shakes such as: Coke, Pepsi, Sprite, Fanta, Chocolate Shake, Strawberry Shake...","Make your lunch epic. Choose crispy or grilled chicken ,bacon & veggies with our seasonal salad.","Discover a world of irresistible flavours with our exciting range of delicious beverages and indulgent treats. Full of those little somethings that help brighten your day.","Kids love a Happy Meal We've teamed up with The Secret Life of Pets 2 to bring you awesome fun in every box. Plus, you can now choose a Fruit Bag instead of Fries!","Taste our perfect Ice Cream Cone with Flake Deliciously soft ice cream, in a crispy cone."};
+        Integer[] imagesDrawable = new Integer[] {R.drawable.burger,R.drawable.beverages,R.drawable.salads,R.drawable.mccafe,R.drawable.happymeal,R.drawable.desserts};
+        mTitles.addAll(Arrays.asList(titleString));
+        mSubtitles.addAll(Arrays.asList(subtiteString));
+        mImages.addAll(Arrays.asList(imagesDrawable));
 
         initRecyclerView();
 
@@ -55,6 +50,7 @@ public class CategoryMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+               Animator(leftBarBtn, logoIv);
                 Intent intent = new Intent(mContext, PopupActivity.class);
                 intent.putExtra("allergyOrilike", "allergy");
                 mContext.startActivity(intent);
@@ -66,11 +62,20 @@ public class CategoryMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Animator(rightBarBtn, logoIv);
                 Intent intent = new Intent(mContext, PopupActivity.class);
                 intent.putExtra("allergyOrilike", "ilike");
                 mContext.startActivity(intent);
             }
         });
+    }
+
+    public void Animator(Button button, ImageView logo){
+        Animation btnAnimation = AnimationUtils.loadAnimation(CategoryMainActivity.this,R.anim.rotate);
+        Animation logoAnimation = AnimationUtils.loadAnimation(CategoryMainActivity.this,R.anim.fadeout_in);
+        logo.startAnimation(logoAnimation);
+        button.startAnimation(btnAnimation);
+
     }
     
     private void initRecyclerView(){
